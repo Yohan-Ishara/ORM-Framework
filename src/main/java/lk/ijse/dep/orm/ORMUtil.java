@@ -25,7 +25,13 @@ public class   ORMUtil{
         Connection connection = null;
         String sqlScript = "";
 
-
+        if (url.indexOf('?') == -1){
+            url += "?allowMultiQueries=true";
+        }else{
+            if (!url.contains("allowMultiQueries=true")){
+                url += "&allowMultiQueries=true";
+            }
+        }
 
         if (username == null || password == null || url == null || driverClassName == null) {
             throw new RuntimeException("Unable to initialize ORM framework without user-name, password, url, and driver");
