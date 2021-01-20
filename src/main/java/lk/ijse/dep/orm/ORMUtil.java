@@ -25,6 +25,7 @@ public class   ORMUtil{
         Connection connection = null;
         String sqlScript = "";
 
+        //allow multiple queries
         if (url.indexOf('?') == -1){
             url += "?allowMultiQueries=true";
         }else{
